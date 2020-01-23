@@ -2,12 +2,11 @@
 This repository contains automated tests for the WordPress CMS application
 
 ### What do I need?
-This should download everything for you, but the following may be useful anyway:
 1. Eclipse IDE
 2. Java SDK
 3. Maven
 
-### Core dependencies
+### Core Dependencies
 1. Selenium Java
 2. TestNg
 3. Maven Surefire plugin
@@ -17,20 +16,20 @@ This should download everything for you, but the following may be useful anyway:
 2. Clone this repository to your local machine
 3. Install eclipse IDE
 4. From Eclipse IDE, Import the wordpressCMS project from where you cloned it on your local
->>> Select File from the Menu bar 
->>> Import 
->>> Maven 
->>> Existing Maven Projects 
->>> Browse to the location of the cloned wordPressCMS project folder and select it 
->>> Check the project displayed in the Projects section 
->>> Click on Finish
+a. Select File from the Menu bar 
+b. Import 
+c. Maven 
+d. Existing Maven Projects 
+e. Browse to the location of the cloned wordPressCMS project folder and select it 
+f. Check the project displayed in the Projects section 
+g. Click on Finish
 5. Update your project with dependencies and plugins from the pom.xml file
->>> Right click on the WordPressCMS project folder 
->>> Maven 
->>> Update Project
+a. Right click on the WordPressCMS project folder 
+b. Maven 
+c. Update Project
 6. Voila! You can proceed to running the tests using the steps in the Execution section of this document
 
-#### Architecture for the WordPress CMS Automated Tests (Maven Project)
+### Architecture of the WordPress CMS Automated Tests (Maven Project)
 The Framework is structured as highlighted below:
 
 **Page Object Repositories** - they contain elements on each referenced page of the WordPress application and the methods required to test the different features of the application.
@@ -46,7 +45,7 @@ The Framework is structured as highlighted below:
 
 **testng.xml** - Here you define execution order of your tests. It is used to define test suites and tests. It is also used to pass Parameters to the test methods.
 
-#### Execution
+### Tests Execution
 **Using testng.xml file**
 From within the wordpressCMS project folder in your Eclipse IDE, Right click on testng.xml file and select TestNG Suite under Run AS.
 
