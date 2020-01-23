@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="354606" started-at="2020-01-23T16:24:45 WAT" finished-at="2020-01-23T16:30:39 WAT">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="354606" started-at="2020-01-23T16:24:45 WAT" finished-at="2020-01-23T16:30:39 WAT">
+      <class name="WordPressCMS.WordPressCMS.GetStartedTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:WordPressCMS.WordPressCMS.GetStartedTest@30b8a058]" name="setup" is-config="true" duration-ms="14279" started-at="2020-01-23T16:27:47 WAT" finished-at="2020-01-23T16:28:02 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyCreateWordpressBlogFree()[pri:0, instance:WordPressCMS.WordPressCMS.GetStartedTest@30b8a058]" name="verifyCreateWordpressBlogFree" duration-ms="39950" started-at="2020-01-23T16:28:02 WAT" finished-at="2020-01-23T16:28:42 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateWordpressBlogFree -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:WordPressCMS.WordPressCMS.GetStartedTest@30b8a058]" name="afterTest" is-config="true" duration-ms="7626" started-at="2020-01-23T16:28:42 WAT" finished-at="2020-01-23T16:28:49 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:WordPressCMS.WordPressCMS.GetStartedTest@30b8a058]" name="setup" is-config="true" duration-ms="17415" started-at="2020-01-23T16:28:49 WAT" finished-at="2020-01-23T16:29:07 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyCreateWordpressBlogPersonal()[pri:1, instance:WordPressCMS.WordPressCMS.GetStartedTest@30b8a058]" name="verifyCreateWordpressBlogPersonal" duration-ms="63788" started-at="2020-01-23T16:29:07 WAT" finished-at="2020-01-23T16:30:10 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateWordpressBlogPersonal -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:WordPressCMS.WordPressCMS.GetStartedTest@30b8a058]" name="afterTest" is-config="true" duration-ms="230" started-at="2020-01-23T16:30:10 WAT" finished-at="2020-01-23T16:30:11 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:WordPressCMS.WordPressCMS.GetStartedTest@30b8a058]" name="setup" is-config="true" duration-ms="23676" started-at="2020-01-23T16:30:11 WAT" finished-at="2020-01-23T16:30:34 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyCreateDuplicateWordpressAccount()[pri:2, instance:WordPressCMS.WordPressCMS.GetStartedTest@30b8a058]" name="verifyCreateDuplicateWordpressAccount" duration-ms="5054" started-at="2020-01-23T16:30:34 WAT" finished-at="2020-01-23T16:30:39 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCreateDuplicateWordpressAccount -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:WordPressCMS.WordPressCMS.GetStartedTest@30b8a058]" name="afterTest" is-config="true" duration-ms="86" started-at="2020-01-23T16:30:39 WAT" finished-at="2020-01-23T16:30:39 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- WordPressCMS.WordPressCMS.GetStartedTest -->
+      <class name="WordPressCMS.WordPressCMS.LoginTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:WordPressCMS.WordPressCMS.LoginTest@68bbe345]" name="setup" is-config="true" duration-ms="16864" started-at="2020-01-23T16:24:45 WAT" finished-at="2020-01-23T16:25:02 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyValidLogin()[pri:0, instance:WordPressCMS.WordPressCMS.LoginTest@68bbe345]" name="verifyValidLogin" duration-ms="21550" started-at="2020-01-23T16:25:02 WAT" finished-at="2020-01-23T16:25:23 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyValidLogin -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:WordPressCMS.WordPressCMS.LoginTest@68bbe345]" name="afterTest" is-config="true" duration-ms="2070" started-at="2020-01-23T16:25:23 WAT" finished-at="2020-01-23T16:25:25 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:WordPressCMS.WordPressCMS.LoginTest@68bbe345]" name="setup" is-config="true" duration-ms="14915" started-at="2020-01-23T16:25:25 WAT" finished-at="2020-01-23T16:25:40 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyValidLoginUsingGoogle()[pri:1, instance:WordPressCMS.WordPressCMS.LoginTest@68bbe345]" name="verifyValidLoginUsingGoogle" duration-ms="36900" started-at="2020-01-23T16:25:40 WAT" finished-at="2020-01-23T16:26:17 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyValidLoginUsingGoogle -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:WordPressCMS.WordPressCMS.LoginTest@68bbe345]" name="afterTest" is-config="true" duration-ms="2129" started-at="2020-01-23T16:26:17 WAT" finished-at="2020-01-23T16:26:19 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:WordPressCMS.WordPressCMS.LoginTest@68bbe345]" name="setup" is-config="true" duration-ms="50800" started-at="2020-01-23T16:26:19 WAT" finished-at="2020-01-23T16:27:10 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyInvalidLogin()[pri:2, instance:WordPressCMS.WordPressCMS.LoginTest@68bbe345]" name="verifyInvalidLogin" duration-ms="37035" started-at="2020-01-23T16:27:10 WAT" finished-at="2020-01-23T16:27:47 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInvalidLogin -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:WordPressCMS.WordPressCMS.LoginTest@68bbe345]" name="afterTest" is-config="true" duration-ms="190" started-at="2020-01-23T16:27:47 WAT" finished-at="2020-01-23T16:27:47 WAT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- WordPressCMS.WordPressCMS.LoginTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
