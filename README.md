@@ -19,18 +19,18 @@ This should download everything for you, but the following may be useful anyway:
 #### Architecture (Maven Project)
 Framework is divided in such subsections:
 
-**Page Object Repositories**
+**Page Object Repositories** - they contain elements on each referenced page of the WordPress application and the methods required to test the different features of the application.
 `src/main/java/WordPressCMS/WordPressCMS/***Repo.java`
 
-**Browser Selector Class** - It consists of various setups for Appium dirver instance like platform version, device name, Appium server url etc.
+**Browser Selector Class** - it contains the method to launch your browser and navigate to the WordPress application base url in any desired browser e.g. chrome, firefox or internet explorer.
 `src/main/java/WordPressCMS/WordPressCMS/BrowserSelector.java`
 
-**Test Classes** - they contain various test cases to execute for our test of the different features of the application. 
+**Test Classes** - they contain various test cases to execute for our test of the different features of the WordPress application. 
 `src/main/test/WordPressCMS/WordPressCMS/***Test.java`
 
 **Pom File** - The pom.xml file contains information of project and configuration information for the maven to build the project such as dependencies, build directory, source directory, test source directory, plugin, goals etc
 
-**Testng.xml** - Here you define execution order of your ests. It is used to define test suites and tests. It is also used to pass Parameters to the test methods.
+**Testng.xml** - Here you define execution order of your tests. It is used to define test suites and tests. It is also used to pass Parameters to the test methods.
 
 #### Execution
 **Testng.xml**
