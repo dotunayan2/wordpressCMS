@@ -5,6 +5,7 @@ package WordPressCMS.WordPressCMS;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -47,9 +48,23 @@ public class BrowserSelector {
 			driver = new InternetExplorerDriver();
 		}
 		
+		else if(browserName.equalsIgnoreCase("edge"))
+		{
+			String driverPath = System.getProperty("user.dir")+"\\drivers\\edgedriver\\msedgedriver.exe";
+			System.setProperty("webdriver.edge.driver",driverPath);
+			driver = new EdgeDriver();
+		}
+		
 		driver.manage().window().maximize();
 		driver.get(url);
 		
 		return driver;
 	}
+	
+	public WebDriver chooseBrowser() {
+		driver = startBrowser("edge", "https://wordpress.com/");
+		
+		return driver;
+	}
+	
 }

@@ -25,7 +25,8 @@ public class LoginTest {
 	@BeforeMethod
 	public void setup() {
 		BrowserSelector browser = new BrowserSelector(driver);
-		driver = browser.startBrowser("chrome", "https://wordpress.com/");
+		/*driver = browser.startBrowser("edge", "https://wordpress.com/");*/
+		driver = browser.chooseBrowser();
 	}
 
 	@AfterMethod
