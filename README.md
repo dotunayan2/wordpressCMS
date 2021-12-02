@@ -41,7 +41,7 @@ The Framework is structured as highlighted below:
 **Test Classes** - they contain various test cases to execute for our test of the different features of the WordPress application. 
 `src/main/test/WordPressCMS/WordPressCMS/***Test.java`
 
-**pom.xml File** - The pom.xml file contains information of project and configuration information for the maven to build the project such as dependencies, build directory, source directory, test source directory, plugin, goals etc
+**pom.xml File** - The pom.xml file contains project and configuration information for maven to build the project such as dependencies, build directory, source directory, test source directory, plugin, goals etc
 
 **testng.xml** - Here you define execution order of your tests. It is used to define test suites and tests. It is also used to pass Parameters to the test methods.
 
