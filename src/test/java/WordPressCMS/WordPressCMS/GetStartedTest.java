@@ -23,7 +23,6 @@ public class GetStartedTest {
 	@BeforeMethod
 	public void setup() {
 		BrowserSelector browser = new BrowserSelector(driver);
-		/*driver = browser.startBrowser("edge", "https://wordpress.com/");*/
 		driver = browser.chooseBrowser();
 	}
 
@@ -40,6 +39,13 @@ public class GetStartedTest {
 		homePage.ClickPlansAndPricing();
 		getStarted.createWordpressAccountFreePlan();
 		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		String pageTitle = driver.getTitle();
 		System.out.println(pageTitle);
 		Assert.assertEquals(pageTitle, "Checkout — WordPress.com");
@@ -52,6 +58,13 @@ public class GetStartedTest {
 		GetStartedPageRepo getStarted = new GetStartedPageRepo(driver);
 		homePage.ClickGetStarted();
 		getStarted.createWordpressAccountPersonalPlan();
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String pageTitle = driver.getTitle();
 		System.out.println(pageTitle);
@@ -66,8 +79,15 @@ public class GetStartedTest {
 		homePage.ClickGetStarted();
 		getStarted.createDuplicateWordpressAccount();
 		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		String validationmsg = driver.findElement(By.cssSelector("div.form-input-validation.is-error")).getText();
 		System.out.println(validationmsg);
-		Assert.assertEquals(validationmsg, "Choose a different email address. This one is not available. If this is you log in now.");
+		Assert.assertEquals(validationmsg, "An account with this email already exists. Log in or reset your password.");
 	}
 }

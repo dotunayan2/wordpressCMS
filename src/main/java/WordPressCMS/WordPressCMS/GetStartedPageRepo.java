@@ -32,9 +32,9 @@ public class GetStartedPageRepo
 	By createAccountButton = By.cssSelector("button.button.signup-form__submit.form-button.is-primary");
 	By blogOption = By.cssSelector("strong.site-type__option-label");
 	By blogTopic = By.id("siteTopic");
-	By continueButton = By.cssSelector("button.button.is-primary");
+	By continueButton = By.xpath("//*[@aria-label=\"Continue with the entered contact details\"]");
 	By blogName = By.id("title");
-	By domainName = By.cssSelector("input.search__input.ltr");
+	By domainName = By.xpath("//*[@aria-label=\"What would you like your domain name to be?\"]");
 	By selectDomain = By.cssSelector("h3.domain-registration-suggestion__title");
 	By pickPersonalPlan = By.cssSelector("button.button.plan-features__actions-button.is-personal-plan");
 	By pickFreePlan = By.id("lpc-button");
@@ -57,22 +57,15 @@ public class GetStartedPageRepo
 
 	public void createWordpressAccountPersonalPlan()
 	{
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		driver.findElement(email).sendKeys(generateEmail);
 		driver.findElement(username).sendKeys(memberName);
 		driver.findElement(password).sendKeys("P@ssword_1A");
 		driver.findElement(createAccountButton).click();
 		
-		driver.findElement(blogOption).click();
-		driver.findElement(blogTopic).sendKeys("Religion");
-		
 		WebDriverWait wait = new WebDriverWait(driver, 20);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(continueButton));
 		
-		driver.findElement(continueButton).click();
-		driver.findElement(blogName).sendKeys("Test Automation's Blog on Religion");
-		driver.findElement(continueButton).click();
 		driver.findElement(domainName).sendKeys(memberName);
 		driver.findElement(selectDomain).click();
 			
@@ -94,13 +87,11 @@ public class GetStartedPageRepo
 		driver.findElement(postalCode).sendKeys("100001");
 		
 		driver.findElement(continueButton).click();
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(subscriptionTerm));
 	}
 	
 	public void createWordpressAccountFreePlan()
 	{
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
@@ -112,14 +103,6 @@ public class GetStartedPageRepo
 		driver.findElement(password).sendKeys("P@ssword_1A");
 		driver.findElement(createAccountButton).click();
 		
-		driver.findElement(blogOption).click();
-		driver.findElement(blogTopic).sendKeys("Religion");
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(continueButton));
-		driver.findElement(continueButton).click();
-		
-		driver.findElement(blogName).sendKeys("Test Automation's Blog on Religion");
-		driver.findElement(continueButton).click();
 		driver.findElement(domainName).sendKeys(memberName);
 		driver.findElement(selectDomain).click();
 		
@@ -141,14 +124,12 @@ public class GetStartedPageRepo
 		driver.findElement(postalCode).sendKeys("100001");
 		
 		driver.findElement(continueButton).click();
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(subscriptionTerm));
 	}
 	
 	public void createDuplicateWordpressAccount()
 	
 	{
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		driver.findElement(email).sendKeys("dotuntestautomation@gmail.com");
 		driver.findElement(username).sendKeys("dotuntestautomation");

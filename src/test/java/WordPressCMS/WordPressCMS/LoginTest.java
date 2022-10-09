@@ -4,10 +4,9 @@
 package WordPressCMS.WordPressCMS;
 
 import org.testng.annotations.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -25,7 +24,6 @@ public class LoginTest {
 	@BeforeMethod
 	public void setup() {
 		BrowserSelector browser = new BrowserSelector(driver);
-		/*driver = browser.startBrowser("edge", "https://wordpress.com/");*/
 		driver = browser.chooseBrowser();
 	}
 
@@ -42,12 +40,16 @@ public class LoginTest {
 		homePage.ClickLogin();
 		login.loginToWordpress("dotuntestautomation@gmail.com", "P@ssword_1A");
 		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(login.searchField));
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String pageTitle = driver.getTitle();
 		System.out.println(pageTitle);
-		Assert.assertEquals(pageTitle, "Following ‹ Reader — WordPress.com");
+		Assert.assertEquals(pageTitle, "My Home ‹ Test Automation's Blog on Religion — WordPress.com");
 	}
 	
 	@Test (priority = 1)
@@ -60,7 +62,7 @@ public class LoginTest {
 		
 		String pageTitle = driver.getTitle();
 		System.out.println(pageTitle);
-		Assert.assertEquals(pageTitle, "Following ‹ Reader — WordPress.com");
+		Assert.assertEquals(pageTitle, "Log In — WordPress.com");
 	}
 	
 	@Test (priority = 2)

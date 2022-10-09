@@ -32,7 +32,8 @@ public class LoginPageRepo {
 	By loginButton = By.cssSelector("button.button.form-button.is-primary");
 	By continueWithGoogleButton = By.cssSelector("span.social-buttons__service-name");
 	By emailOrPhone = By.name("identifier");
-	By nextButton = By.cssSelector("span.RveJvd.snByac");
+	By nextButton = By.xpath("//*[@id=\"identifierNext\"]/div/button/span");
+	By tryButton = By.xpath("//*[@id=\"next\"]/div/button/span");
 	By password2 = By.name("password");
 	By searchField = By.id("search-component-1");
 	
@@ -41,6 +42,15 @@ public class LoginPageRepo {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(usernameOrEmail).sendKeys(username);
 		driver.findElement(continueButton).click();
+		
+		try {
+			Thread.sleep(5000);
+			driver.findElement(continueWithGoogleButton).click();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		driver.findElement(password).sendKeys(pass);
 		driver.findElement(loginButton).click();
 	}
@@ -58,7 +68,7 @@ public class LoginPageRepo {
 		driver.findElement(continueWithGoogleButton).click();*/
         
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 			driver.findElement(continueWithGoogleButton).click();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
@@ -78,14 +88,13 @@ public class LoginPageRepo {
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailOrPhone));
         driver.findElement(emailOrPhone).sendKeys("dotuntestautomation@gmail.com");
 		driver.findElement(nextButton).click();
-		driver.findElement(password2).sendKeys("P@ssword_1A");
+				
+		wait.until(ExpectedConditions.elementToBeClickable(tryButton));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(tryButton));
 		
-		wait.until(ExpectedConditions.elementToBeClickable(nextButton));
-		driver.findElement(nextButton).click();
+		driver.close();
         
         driver.switchTo().window(parentWindow);
-        
-		wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
 	}
 
 
