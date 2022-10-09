@@ -62,7 +62,7 @@ public class BrowserSelector {
 	}
 	
 	public WebDriver chooseBrowser() {
-		driver = startBrowser("firefox", "https://wordpress.com/");
+		driver = startBrowser("chrome", "https://wordpress.com/");
 		
 		return driver;
 	}
