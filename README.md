@@ -12,22 +12,22 @@ This repository contains automated tests for the WordPress CMS application
 3. Maven Surefire plugin
 
 ### Setup / Installation on WINDOWS
-1. Download java and set Java_Home in environment variables
+1. Download Java and set Java_Home in environment variables
 2. Clone this repository to your local machine
-3. Install eclipse IDE
+3. Install Eclipse IDE
 4. From Eclipse IDE, Import the wordpressCMS project from where you cloned it on your local
-a. Select File from the Menu bar 
+a. Select File from the Menu bar
 b. Import 
 c. Maven 
 d. Existing Maven Projects 
 e. Browse to the location of the cloned wordPressCMS project folder and select it 
 f. Check the project displayed in the Projects section 
 g. Click on Finish
-5. Update your project with dependencies and plugins from the pom.xml file
-a. Right click on the WordPressCMS project folder 
+6. Update your project with dependencies and plugins from the pom.xml file
+a. Right-click on the WordPressCMS project folder 
 b. Maven 
 c. Update Project
-6. Voila! You can proceed to running the tests using the steps in the Execution section of this document
+7. Voila! You can proceed to run the tests using the steps in the Execution section of this document
 
 ### Architecture of the WordPress CMS Automated Tests (Maven Project)
 The Framework is structured as highlighted below:
