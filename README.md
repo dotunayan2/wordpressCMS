@@ -24,10 +24,10 @@ This repository contains automated tests for the WordPress CMS application
 10. Check the project displayed in the Projects section
 11. Click on Finish
 12. Update your project with dependencies and plugins from the pom.xml file
-a. Right-click on the WordPressCMS project folder 
-b. Click Maven 
-c. Click Update Project
-13. Voila! You can proceed to run the tests using the steps in the Execution section of this document
+13. Right-click on the WordPressCMS project folder
+14. Click Maven
+15. Click Update Project
+16. Voila! You can proceed to run the tests using the steps in the Execution section of this document
 
 ### Architecture of the WordPress CMS Automated Tests (Maven Project)
 The Framework is structured as highlighted below:
