@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -26,9 +25,13 @@ public class GetStartedPageRepo
 		this.driver = driver;
 	}
 	
-	By email = By.id("email");
+	By continueWithGoogleButton = By.xpath("//*[@id=\"primary\"]/div/div[2]/div/div/div/div[3]/div[1]/div/div/div/button[1]");
+	By continueWithEmailButton = By.xpath("//*[@id=\"primary\"]/div/div[2]/div/div/div/div[3]/div[1]/div/div/div/button[4]");	
+	By email = By.id("signup-email");
 	By username = By.name("username");
 	By password = By.id("password");
+	By siteName = By.id("setup-form-input-name");
+	By continueBtn = By.xpath("//*[@id=\"primary\"]/div/div[2]/div/div/div/div[3]/div[1]/div/div/div/form/div/button");
 	By createAccountButton = By.cssSelector("button.button.signup-form__submit.form-button.is-primary");
 	By blogOption = By.cssSelector("strong.site-type__option-label");
 	By blogTopic = By.id("siteTopic");
@@ -36,8 +39,8 @@ public class GetStartedPageRepo
 	By blogName = By.id("title");
 	By domainName = By.xpath("//*[@aria-label=\"What would you like your domain name to be?\"]");
 	By selectDomain = By.cssSelector("h3.domain-registration-suggestion__title");
-	By pickPersonalPlan = By.cssSelector("button.button.plan-features__actions-button.is-personal-plan");
-	By pickFreePlan = By.id("lpc-button");
+	By pickPersonalPlan = By.xpath("//*[@id=\"pricing-grid\"]/section/section/div/div[1]/div[1]/div[4]/div[2]/a");
+	By pickFreePlan = By.linkText("start with our free plan");
 	By firstName = By.id("first-name");
 	By lastName = By.id("last-name");
 	By phone = By.name("phone");
@@ -54,32 +57,31 @@ public class GetStartedPageRepo
 	public String memberName = UUID.randomUUID().toString().substring(0, 20);
 	public String member = "User" + memberName;
 	public String generateEmail = member + "@gmail.com";
-
+	
 	public void createWordpressAccountPersonalPlan()
 	{
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		driver.findElement(email).sendKeys(generateEmail);
-		driver.findElement(username).sendKeys(memberName);
-		driver.findElement(password).sendKeys("P@ssword_1A");
-		driver.findElement(createAccountButton).click();
-		
 		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(pickPersonalPlan));
+		driver.findElement(pickPersonalPlan).click();
 		
+		wait.until(ExpectedConditions.elementToBeClickable(continueWithEmailButton));
+		driver.findElement(continueWithEmailButton).click();
+		
+		driver.findElement(email).sendKeys(generateEmail);
+		driver.findElement(continueBtn).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(domainName));
+
 		driver.findElement(domainName).sendKeys(memberName);
 		driver.findElement(selectDomain).click();
-			
-		wait.until(ExpectedConditions.elementToBeClickable(pickPersonalPlan));
-		driver.findElement(pickPersonalPlan).click();
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(firstName));	
 		
 		driver.findElement(firstName).sendKeys("Test");
 		driver.findElement(lastName).sendKeys("Automation");
 		driver.findElement(phone).sendKeys("08029075365");
-		
-		Select dropdown = new Select(driver.findElement(country));
-		dropdown.selectByValue("NG");
 		
 		driver.findElement(address).sendKeys("Test");
 		driver.findElement(city).sendKeys("Lagos");
@@ -98,32 +100,13 @@ public class GetStartedPageRepo
 		wait.until(ExpectedConditions.elementToBeClickable(pickFreePlan));
 		driver.findElement(pickFreePlan).click();
 		
+		wait.until(ExpectedConditions.elementToBeClickable(continueWithEmailButton));
+		driver.findElement(continueWithEmailButton).click();
+		
 		driver.findElement(email).sendKeys(generateEmail);
-		driver.findElement(username).sendKeys(memberName);
-		driver.findElement(password).sendKeys("P@ssword_1A");
-		driver.findElement(createAccountButton).click();
+		driver.findElement(continueBtn).click();
 		
-		driver.findElement(domainName).sendKeys(memberName);
-		driver.findElement(selectDomain).click();
-		
-		wait.until(ExpectedConditions.elementToBeClickable(pickPersonalPlan));
-		driver.findElement(pickPersonalPlan).click();
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(firstName));
-		
-		driver.findElement(firstName).sendKeys("Test");
-		driver.findElement(lastName).sendKeys("Automation");
-		driver.findElement(phone).sendKeys("08029075365");
-		
-		Select dropdown = new Select(driver.findElement(country));
-		dropdown.selectByValue("NG");
-		
-		driver.findElement(address).sendKeys("Test");
-		driver.findElement(city).sendKeys("Lagos");
-		driver.findElement(state).sendKeys("Lagos");
-		driver.findElement(postalCode).sendKeys("100001");
-		
-		driver.findElement(continueButton).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(siteName));	
 	}
 	
 	public void createDuplicateWordpressAccount()
@@ -131,9 +114,8 @@ public class GetStartedPageRepo
 	{
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
+		driver.findElement(continueWithEmailButton).click();
 		driver.findElement(email).sendKeys("dotuntestautomation@gmail.com");
-		driver.findElement(username).sendKeys("dotuntestautomation");
-		driver.findElement(password).sendKeys("P@ssword_1A");
-		driver.findElement(createAccountButton).click();
+		driver.findElement(continueBtn).click();
 	}
 }

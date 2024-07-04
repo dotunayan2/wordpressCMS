@@ -31,26 +31,21 @@ public class LoginPageRepo {
 	By continueButton = By.cssSelector("button.button.form-button.is-primary");
 	By loginButton = By.cssSelector("button.button.form-button.is-primary");
 	By continueWithGoogleButton = By.cssSelector("span.social-buttons__service-name");
-	By emailOrPhone = By.name("identifier");
+	By emailOrPhone = By.xpath("//*[@id=\"identifierId\"]");	
 	By nextButton = By.xpath("//*[@id=\"identifierNext\"]/div/button/span");
-	By tryButton = By.xpath("//*[@id=\"next\"]/div/button/span");
 	By password2 = By.name("password");
 	By searchField = By.id("search-component-1");
 	
 	public void loginToWordpress(String username, String pass)
 	{
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.elementToBeClickable(usernameOrEmail));
+		
 		driver.findElement(usernameOrEmail).sendKeys(username);
 		driver.findElement(continueButton).click();
 		
-		try {
-			Thread.sleep(5000);
-			driver.findElement(continueWithGoogleButton).click();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		wait.until(ExpectedConditions.elementToBeClickable(password));
 		driver.findElement(password).sendKeys(pass);
 		driver.findElement(loginButton).click();
 	}
@@ -64,22 +59,22 @@ public class LoginPageRepo {
         System.out.println("Parent window handle: " + parentWindow);
 		
         WebDriverWait wait = new WebDriverWait(driver, 20);
-		/*wait.until(ExpectedConditions.elementToBeClickable(continueWithGoogleButton));
-		driver.findElement(continueWithGoogleButton).click();*/
-        
+		
+        wait.until(ExpectedConditions.visibilityOfElementLocated(continueWithGoogleButton));
+		driver.findElement(continueWithGoogleButton).click();
+		
 		try {
-			Thread.sleep(5000);
-			driver.findElement(continueWithGoogleButton).click();
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		// Store and Print the name of all the windows open	              
-        Set<String> handles = driver.getWindowHandles();
-        System.out.println("Display open window handles: " + handles);
+        Set<String> windowHandles = driver.getWindowHandles();
+        System.out.println("Display open window handles: " + windowHandles);
         // Pass a window handle to the other window
-        for (String windowHandle : driver.getWindowHandles()) {
+        for (String windowHandle : windowHandles) {
         System.out.println(windowHandle);
 
         driver.switchTo().window(windowHandle);
@@ -88,9 +83,6 @@ public class LoginPageRepo {
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailOrPhone));
         driver.findElement(emailOrPhone).sendKeys("dotuntestautomation@gmail.com");
 		driver.findElement(nextButton).click();
-				
-		wait.until(ExpectedConditions.elementToBeClickable(tryButton));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(tryButton));
 		
 		driver.close();
         

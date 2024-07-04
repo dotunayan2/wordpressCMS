@@ -3,10 +3,10 @@
  */
 package WordPressCMS.WordPressCMS;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * @author adenuga.ayannuga
@@ -26,23 +26,26 @@ public class HomePageRepo {
 	
 	By plansPricingLink = By.linkText("Plans & Pricing");
 	By loginLink = By.linkText("Log In");
-	By getStartedLink = By.linkText("Get Started");
+	By getStartedLink = By.linkText("Get started");
 	
 	public void ClickPlansAndPricing()
 	{
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.elementToBeClickable(plansPricingLink));
 		driver.findElement(plansPricingLink).click();
 	}
 	
 	public void ClickLogin()
 	{
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.elementToBeClickable(loginLink));
 		driver.findElement(loginLink).click();
 	}
 	
 	public void ClickGetStarted()
 	{
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.elementToBeClickable(getStartedLink));
 		driver.findElement(getStartedLink).click();
 	}
 

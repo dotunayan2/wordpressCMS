@@ -7,6 +7,8 @@ import org.testng.annotations.Test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,6 +23,8 @@ public class LoginTest {
 	
 	public WebDriver driver;
 	
+	By errorMsg = By.xpath("//*[@id=\"primary\"]/div/main/div[2]/div/form/div[1]/div[1]/div/div[2]/span");
+		
 	@BeforeMethod
 	public void setup() {
 		BrowserSelector browser = new BrowserSelector(driver);
@@ -40,19 +44,15 @@ public class LoginTest {
 		homePage.ClickLogin();
 		login.loginToWordpress("dotuntestautomation@gmail.com", "P@ssword_1A");
 		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.titleContains("My Home ‹ Test Automation's Blog on Religion — WordPress.com"));
 		
 		String pageTitle = driver.getTitle();
 		System.out.println(pageTitle);
 		Assert.assertEquals(pageTitle, "My Home ‹ Test Automation's Blog on Religion — WordPress.com");
 	}
 	
-	@Test (priority = 1)
+	@Test (priority = 2)
 	public void verifyValidLoginUsingGoogle()
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
@@ -65,17 +65,22 @@ public class LoginTest {
 		Assert.assertEquals(pageTitle, "Log In — WordPress.com");
 	}
 	
-	@Test (priority = 2)
+	@Test (priority = 1)
 	public void verifyInvalidLogin()
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
 		LoginPageRepo login = new LoginPageRepo(driver);
 		homePage.ClickLogin();
 		login.loginToWordpress("dotuntestautomation@gmail.com", "P@ssword");
+
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
-		String validationmsg = driver.findElement(By.cssSelector("div.form-input-validation.is-error")).getText();
-		System.out.println(validationmsg);
-		Assert.assertEquals(validationmsg, "Oops, that's not the right password. Please try again!");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(errorMsg));
+		
+		String errormsg = driver.findElement(errorMsg).getText();
+		System.out.println(errormsg);
+		
+		Assert.assertEquals(errormsg, "It seems you entered an incorrect password. Want to get a login link via email?");
 	}
 
 }

@@ -5,6 +5,8 @@ package WordPressCMS.WordPressCMS;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -39,16 +41,15 @@ public class GetStartedTest {
 		homePage.ClickPlansAndPricing();
 		getStarted.createWordpressAccountFreePlan();
 		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		String pageTitle = driver.getTitle();
 		System.out.println(pageTitle);
-		Assert.assertEquals(pageTitle, "Checkout — WordPress.com");
+		Assert.assertEquals(pageTitle, "WordPress.com");
+		
+		
+		String pageHeader = driver.findElement(By.xpath("//*[@id=\"free-setup-header\"]/div/h1")).getText();
+		System.out.println(pageHeader);
+		Assert.assertEquals(pageHeader, "Personalize your Site");
+		
 	}
 	
 	@Test (priority = 1)
@@ -56,11 +57,11 @@ public class GetStartedTest {
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
 		GetStartedPageRepo getStarted = new GetStartedPageRepo(driver);
-		homePage.ClickGetStarted();
+		homePage.ClickPlansAndPricing();
 		getStarted.createWordpressAccountPersonalPlan();
 		
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,15 +80,11 @@ public class GetStartedTest {
 		homePage.ClickGetStarted();
 		getStarted.createDuplicateWordpressAccount();
 		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"primary\"]/div/main/div[2]/div/form/div[1]/div[1]/div[1]/span[2]")));
 		
-		String validationmsg = driver.findElement(By.cssSelector("div.form-input-validation.is-error")).getText();
+		String validationmsg = driver.findElement(By.xpath("//*[@id=\"primary\"]/div/main/div[2]/div/form/div[1]/div[1]/div[1]/span[2]")).getText();
 		System.out.println(validationmsg);
-		Assert.assertEquals(validationmsg, "An account with this email already exists. Log in or reset your password.");
+		Assert.assertEquals(validationmsg, "This email address is already associated with an account. Please consider using another one or log in.");
 	}
 }
