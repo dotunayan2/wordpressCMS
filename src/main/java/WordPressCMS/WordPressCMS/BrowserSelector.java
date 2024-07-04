@@ -29,8 +29,8 @@ public class BrowserSelector {
 		
 		if(browserName.equalsIgnoreCase("chrome")) 
 		{
-			String driverPath = System.getProperty("user.dir")+"\\drivers\\chromedriver\\chromedriver.exe";
-			/*String driverPath = System.getProperty("user.dir")+"\\drivers\\chromedriver\\chromedriver";*/
+//			String driverPath = System.getProperty("user.dir")+"\\drivers\\chromedriver\\chromedriver.exe";
+			String driverPath = System.getProperty("user.dir")+"\\drivers\\chromedriver\\chromedriver";
 			System.setProperty("webdriver.chrome.driver",driverPath);
 			driver = new ChromeDriver();
 		}
