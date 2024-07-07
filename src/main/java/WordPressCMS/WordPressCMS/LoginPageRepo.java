@@ -3,9 +3,8 @@
  */
 package WordPressCMS.WordPressCMS;
 
+import java.time.Duration;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,7 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LoginPageRepo {
 	
 	WebDriver driver;
-	
+		
 	public LoginPageRepo(WebDriver driver) 
 	{
 		this.driver = driver;
@@ -38,8 +37,7 @@ public class LoginPageRepo {
 	
 	public void loginToWordpress(String username, String pass)
 	{
-		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(usernameOrEmail));
 		
 		driver.findElement(usernameOrEmail).sendKeys(username);
@@ -51,15 +49,13 @@ public class LoginPageRepo {
 	}
 	
 	public void loginToWordpressGoogle()
-	{
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
+	{		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
 		// Store and Print the name of the First window on the console
         String parentWindow = driver.getWindowHandle();
         System.out.println("Parent window handle: " + parentWindow);
-		
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-		
+				
         wait.until(ExpectedConditions.visibilityOfElementLocated(continueWithGoogleButton));
 		driver.findElement(continueWithGoogleButton).click();
 		

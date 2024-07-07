@@ -3,6 +3,8 @@
  */
 package WordPressCMS.WordPressCMS;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,6 +23,8 @@ import org.testng.annotations.Test;
 public class GetStartedTest {
 	
 	public WebDriver driver ;
+	
+	By pageHeader = By.xpath("//*[@id=\"free-setup-header\"]/div/h1");
 	
 	@BeforeMethod
 	public void setup() {
@@ -46,9 +50,9 @@ public class GetStartedTest {
 		Assert.assertEquals(pageTitle, "WordPress.com");
 		
 		
-		String pageHeader = driver.findElement(By.xpath("//*[@id=\"free-setup-header\"]/div/h1")).getText();
-		System.out.println(pageHeader);
-		Assert.assertEquals(pageHeader, "Personalize your Site");
+		String pageHeaderText = driver.findElement(pageHeader).getText();
+		System.out.println(pageHeaderText);
+		Assert.assertEquals(pageHeaderText, "Personalize your Site");
 		
 	}
 	
@@ -80,7 +84,8 @@ public class GetStartedTest {
 		homePage.ClickGetStarted();
 		getStarted.createDuplicateWordpressAccount();
 		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"primary\"]/div/main/div[2]/div/form/div[1]/div[1]/div[1]/span[2]")));
 		
 		String validationmsg = driver.findElement(By.xpath("//*[@id=\"primary\"]/div/main/div[2]/div/form/div[1]/div[1]/div[1]/span[2]")).getText();

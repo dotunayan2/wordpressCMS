@@ -29,30 +29,21 @@ public class BrowserSelector {
 		
 		if(browserName.equalsIgnoreCase("chrome")) 
 		{
-//			String driverPath = System.getProperty("user.dir")+"\\drivers\\chromedriver\\chromedriver.exe";
-			String driverPath = System.getProperty("user.dir")+"\\drivers\\chromedriver\\chromedriver";
-			System.setProperty("webdriver.chrome.driver",driverPath);
 			driver = new ChromeDriver();
 		}
 		
 		else if(browserName.equalsIgnoreCase("firefox")) 
 		{
-			String driverPath = System.getProperty("user.dir")+"\\drivers\\geckodriver\\geckodriver.exe";
-			System.setProperty("webdriver.gecko.driver",driverPath);
 			driver = new FirefoxDriver();
 		}
 		
 		else if(browserName.equalsIgnoreCase("IE"))
 		{
-			String driverPath = System.getProperty("user.dir")+"\\drivers\\IEDriver\\IEDriverServer.exe";
-			System.setProperty("webdriver.ie.driver",driverPath);
 			driver = new InternetExplorerDriver();
 		}
 		
 		else if(browserName.equalsIgnoreCase("edge"))
 		{
-			String driverPath = System.getProperty("user.dir")+"\\drivers\\edgedriver\\msedgedriver.exe";
-			System.setProperty("webdriver.edge.driver",driverPath);
 			driver = new EdgeDriver();
 		}
 		

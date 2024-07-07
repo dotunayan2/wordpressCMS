@@ -3,6 +3,8 @@
  */
 package WordPressCMS.WordPressCMS;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,22 +31,22 @@ public class HomePageRepo {
 	By getStartedLink = By.linkText("Get started");
 	
 	public void ClickPlansAndPricing()
-	{
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+	{		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(plansPricingLink));
 		driver.findElement(plansPricingLink).click();
 	}
 	
 	public void ClickLogin()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(loginLink));
 		driver.findElement(loginLink).click();
 	}
 	
 	public void ClickGetStarted()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.elementToBeClickable(getStartedLink));
 		driver.findElement(getStartedLink).click();
 	}

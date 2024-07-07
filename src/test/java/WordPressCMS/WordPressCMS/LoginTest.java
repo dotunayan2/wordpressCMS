@@ -5,6 +5,8 @@ package WordPressCMS.WordPressCMS;
 
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -44,7 +46,7 @@ public class LoginTest {
 		homePage.ClickLogin();
 		login.loginToWordpress("dotuntestautomation@gmail.com", "P@ssword_1A");
 		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.titleContains("My Home ‹ Test Automation's Blog on Religion — WordPress.com"));
 		
 		String pageTitle = driver.getTitle();
@@ -73,7 +75,7 @@ public class LoginTest {
 		homePage.ClickLogin();
 		login.loginToWordpress("dotuntestautomation@gmail.com", "P@ssword");
 
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(errorMsg));
 		

@@ -1,8 +1,7 @@
 package WordPressCMS.WordPressCMS;
 
+import java.time.Duration;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,7 +18,7 @@ public class GetStartedPageRepo
 {	
 	
 	WebDriver driver;
-	
+		
 	public GetStartedPageRepo(WebDriver driver) 
 	{
 		this.driver = driver;
@@ -60,9 +59,9 @@ public class GetStartedPageRepo
 	
 	public void createWordpressAccountPersonalPlan()
 	{
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(pickPersonalPlan));
 		driver.findElement(pickPersonalPlan).click();
 		
@@ -75,6 +74,9 @@ public class GetStartedPageRepo
 		wait.until(ExpectedConditions.elementToBeClickable(domainName));
 
 		driver.findElement(domainName).sendKeys(memberName);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(selectDomain));
+
 		driver.findElement(selectDomain).click();
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(firstName));	
@@ -93,9 +95,7 @@ public class GetStartedPageRepo
 	
 	public void createWordpressAccountFreePlan()
 	{
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		
 		wait.until(ExpectedConditions.elementToBeClickable(pickFreePlan));
 		driver.findElement(pickFreePlan).click();
@@ -111,9 +111,7 @@ public class GetStartedPageRepo
 	
 	public void createDuplicateWordpressAccount()
 	
-	{
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
+	{		
 		driver.findElement(continueWithEmailButton).click();
 		driver.findElement(email).sendKeys("dotuntestautomation@gmail.com");
 		driver.findElement(continueBtn).click();
