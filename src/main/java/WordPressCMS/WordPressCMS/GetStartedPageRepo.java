@@ -60,7 +60,7 @@ public class GetStartedPageRepo
 	public void createWordpressAccountPersonalPlan()
 	{
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(pickPersonalPlan));
 		driver.findElement(pickPersonalPlan).click();
@@ -95,7 +95,7 @@ public class GetStartedPageRepo
 	
 	public void createWordpressAccountFreePlan()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		
 		wait.until(ExpectedConditions.elementToBeClickable(pickFreePlan));
 		driver.findElement(pickFreePlan).click();

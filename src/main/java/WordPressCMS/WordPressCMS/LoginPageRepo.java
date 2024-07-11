@@ -37,7 +37,7 @@ public class LoginPageRepo {
 	
 	public void loginToWordpress(String username, String pass)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(usernameOrEmail));
 		
 		driver.findElement(usernameOrEmail).sendKeys(username);
@@ -50,7 +50,7 @@ public class LoginPageRepo {
 	
 	public void loginToWordpressGoogle()
 	{		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		// Store and Print the name of the First window on the console
         String parentWindow = driver.getWindowHandle();
@@ -60,7 +60,7 @@ public class LoginPageRepo {
 		driver.findElement(continueWithGoogleButton).click();
 		
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

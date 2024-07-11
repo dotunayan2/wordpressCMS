@@ -42,7 +42,7 @@ public class GetStartedTest {
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
 		GetStartedPageRepo getStarted = new GetStartedPageRepo(driver);
-		homePage.ClickPlansAndPricing();
+		homePage.clickPlansAndPricing();
 		getStarted.createWordpressAccountFreePlan();
 		
 		String pageTitle = driver.getTitle();
@@ -61,7 +61,7 @@ public class GetStartedTest {
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
 		GetStartedPageRepo getStarted = new GetStartedPageRepo(driver);
-		homePage.ClickPlansAndPricing();
+		homePage.clickPlansAndPricing();
 		getStarted.createWordpressAccountPersonalPlan();
 		
 		try {
@@ -81,10 +81,10 @@ public class GetStartedTest {
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
 		GetStartedPageRepo getStarted = new GetStartedPageRepo(driver);
-		homePage.ClickGetStarted();
+		homePage.clickGetStarted();
 		getStarted.createDuplicateWordpressAccount();
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"primary\"]/div/main/div[2]/div/form/div[1]/div[1]/div[1]/span[2]")));
 		

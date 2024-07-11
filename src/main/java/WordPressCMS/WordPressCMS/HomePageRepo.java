@@ -30,23 +30,23 @@ public class HomePageRepo {
 	By loginLink = By.linkText("Log In");
 	By getStartedLink = By.linkText("Get started");
 	
-	public void ClickPlansAndPricing()
+	public void clickPlansAndPricing()
 	{		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(plansPricingLink));
 		driver.findElement(plansPricingLink).click();
 	}
 	
-	public void ClickLogin()
+	public void clickLogin()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(loginLink));
 		driver.findElement(loginLink).click();
 	}
 	
-	public void ClickGetStarted()
+	public void clickGetStarted()
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(getStartedLink));
 		driver.findElement(getStartedLink).click();
 	}

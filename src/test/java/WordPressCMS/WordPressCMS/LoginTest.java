@@ -43,10 +43,10 @@ public class LoginTest {
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
 		LoginPageRepo login = new LoginPageRepo(driver);
-		homePage.ClickLogin();
+		homePage.clickLogin();
 		login.loginToWordpress("dotuntestautomation@gmail.com", "P@ssword_1A");
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.titleContains("My Home ‹ Test Automation's Blog on Religion — WordPress.com"));
 		
 		String pageTitle = driver.getTitle();
@@ -59,7 +59,7 @@ public class LoginTest {
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
 		LoginPageRepo login = new LoginPageRepo(driver);
-		homePage.ClickLogin();
+		homePage.clickLogin();
 		login.loginToWordpressGoogle();
 		
 		String pageTitle = driver.getTitle();
@@ -72,10 +72,10 @@ public class LoginTest {
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
 		LoginPageRepo login = new LoginPageRepo(driver);
-		homePage.ClickLogin();
+		homePage.clickLogin();
 		login.loginToWordpress("dotuntestautomation@gmail.com", "P@ssword");
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(errorMsg));
 		
