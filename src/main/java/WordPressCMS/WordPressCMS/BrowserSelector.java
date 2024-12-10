@@ -32,10 +32,17 @@ public class BrowserSelector {
 		{
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless=new");
-			options.addArguments("window-size=1920,1080");
+			options.addArguments("--window-size=1920,1080");
+			
+			options.addArguments("--disable-gpu");
+			options.addArguments("--no-sandbox");
+			options.addArguments("--allow-insecure-localhost");
+			options.addArguments("--ignore-certificate-errors");
+			options.setAcceptInsecureCerts(true);
+			
 			driver = new ChromeDriver(options);
 			
-//			driver = new ChromeDriver();
+			// driver = new ChromeDriver();
 		}
 		
 		else if(browserName.equalsIgnoreCase("firefox")) 

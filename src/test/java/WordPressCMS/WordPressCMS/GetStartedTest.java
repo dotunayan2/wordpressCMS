@@ -23,9 +23,7 @@ import org.testng.annotations.Test;
 public class GetStartedTest {
 	
 	public WebDriver driver ;
-	
-	By pageHeader = By.xpath("//*[@id=\"free-setup-header\"]/div/h1");
-	
+		
 	@BeforeMethod
 	public void setup() {
 		BrowserSelector browser = new BrowserSelector(driver);
@@ -34,7 +32,7 @@ public class GetStartedTest {
 
 	@AfterMethod
 	public void afterTest() {	  
-	driver.close();
+		driver.quit();
 	}
 	
 	@Test (priority = 0)
@@ -47,12 +45,19 @@ public class GetStartedTest {
 		
 		String pageTitle = driver.getTitle();
 		System.out.println(pageTitle);
-		Assert.assertEquals(pageTitle, "WordPress.com");
+		Assert.assertEquals(pageTitle, "Create a site — WordPress.com");
 		
+		getStarted.createWordpressAccountDataInput();
 		
-		String pageHeaderText = driver.findElement(pageHeader).getText();
-		System.out.println(pageHeaderText);
-		Assert.assertEquals(pageHeaderText, "Personalize your Site");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		String pageTitle1 = driver.getTitle();
+		System.out.println(pageTitle1);
+		Assert.assertEquals(pageTitle1, "Checkout — WordPress.com");
 		
 	}
 	
@@ -64,10 +69,11 @@ public class GetStartedTest {
 		homePage.clickPlansAndPricing();
 		getStarted.createWordpressAccountPersonalPlan();
 		
+		getStarted.createWordpressAccountDataInput();
+		
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -81,7 +87,7 @@ public class GetStartedTest {
 	{	
 		HomePageRepo homePage = new HomePageRepo(driver);
 		GetStartedPageRepo getStarted = new GetStartedPageRepo(driver);
-		homePage.clickGetStarted();
+		homePage.clickPlansAndPricing();
 		getStarted.createDuplicateWordpressAccount();
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));

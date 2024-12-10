@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author adenuga.ayannuga
@@ -18,6 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class LoginPageRepo {
 	
+	private static final Logger logger = LoggerFactory.getLogger(LoginPageRepo.class);
 	WebDriver driver;
 		
 	public LoginPageRepo(WebDriver driver) 
@@ -36,7 +39,7 @@ public class LoginPageRepo {
 	By searchField = By.id("search-component-1");
 	
 	public void loginToWordpress(String username, String pass)
-	{
+	{		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(usernameOrEmail));
 		
@@ -49,7 +52,7 @@ public class LoginPageRepo {
 	}
 	
 	public void loginToWordpressGoogle()
-	{		
+	{				
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		// Store and Print the name of the First window on the console
@@ -62,7 +65,6 @@ public class LoginPageRepo {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

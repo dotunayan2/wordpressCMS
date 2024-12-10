@@ -29,16 +29,15 @@ public class GetStartedPageRepo
 	By email = By.id("signup-email");
 	By username = By.name("username");
 	By password = By.id("password");
-	By siteName = By.id("setup-form-input-name");
 	By continueBtn = By.xpath("//*[@id=\"primary\"]/div/div[2]/div/div/div/div[3]/div[1]/div/div/div/form/div/button");
 	By createAccountButton = By.cssSelector("button.button.signup-form__submit.form-button.is-primary");
 	By blogOption = By.cssSelector("strong.site-type__option-label");
 	By blogTopic = By.id("siteTopic");
 	By continueButton = By.xpath("//*[@aria-label=\"Continue with the entered contact details\"]");
 	By blogName = By.id("title");
-	By domainName = By.xpath("//*[@aria-label=\"What would you like your domain name to be?\"]");
-	By selectDomain = By.cssSelector("h3.domain-registration-suggestion__title");
-	By pickPersonalPlan = By.xpath("//*[@id=\"pricing-grid\"]/section/section/div/div[1]/div[1]/div[4]/div[2]/a");
+	By domainName = By.id("search-component-search-0");
+	By selectDomain = By.cssSelector("button.button.domain-suggestion__action.is-primary");
+	By pickPersonalPlan = By.xpath("//*[@id=\"pricing-grid\"]/div[3]/div/div[1]/div[1]/div[4]/div[2]/a/span[1]");
 	By pickFreePlan = By.linkText("start with our free plan");
 	By firstName = By.id("first-name");
 	By lastName = By.id("last-name");
@@ -59,7 +58,6 @@ public class GetStartedPageRepo
 	
 	public void createWordpressAccountPersonalPlan()
 	{
-		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(pickPersonalPlan));
@@ -70,7 +68,26 @@ public class GetStartedPageRepo
 		
 		driver.findElement(email).sendKeys(generateEmail);
 		driver.findElement(continueBtn).click();
+	}
+	
+	public void createWordpressAccountFreePlan()
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		
+		wait.until(ExpectedConditions.elementToBeClickable(pickFreePlan));
+		driver.findElement(pickFreePlan).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(continueWithEmailButton));
+		driver.findElement(continueWithEmailButton).click();
+		
+		driver.findElement(email).sendKeys(generateEmail);
+		driver.findElement(continueBtn).click();		
+	}
+
+	public void createWordpressAccountDataInput()
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+	
 		wait.until(ExpectedConditions.elementToBeClickable(domainName));
 
 		driver.findElement(domainName).sendKeys(memberName);
@@ -92,26 +109,17 @@ public class GetStartedPageRepo
 		
 		driver.findElement(continueButton).click();
 	}
+
 	
-	public void createWordpressAccountFreePlan()
-	{
+	public void createDuplicateWordpressAccount()
+	
+	{		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		
 		wait.until(ExpectedConditions.elementToBeClickable(pickFreePlan));
 		driver.findElement(pickFreePlan).click();
 		
 		wait.until(ExpectedConditions.elementToBeClickable(continueWithEmailButton));
-		driver.findElement(continueWithEmailButton).click();
-		
-		driver.findElement(email).sendKeys(generateEmail);
-		driver.findElement(continueBtn).click();
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(siteName));	
-	}
-	
-	public void createDuplicateWordpressAccount()
-	
-	{		
 		driver.findElement(continueWithEmailButton).click();
 		driver.findElement(email).sendKeys("dotuntestautomation@gmail.com");
 		driver.findElement(continueBtn).click();

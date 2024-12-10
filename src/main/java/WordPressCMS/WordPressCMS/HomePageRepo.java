@@ -27,7 +27,7 @@ public class HomePageRepo {
 	}
 	
 	By plansPricingLink = By.linkText("Plans & Pricing");
-	By loginLink = By.linkText("Log In");
+	By loginLink = By.linkText("Log in");
 	By getStartedLink = By.linkText("Get started");
 	
 	public void clickPlansAndPricing()
